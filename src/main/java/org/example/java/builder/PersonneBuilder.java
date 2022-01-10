@@ -1,15 +1,17 @@
 package org.example.java.builder;
 
+import org.example.java.entities.Adresse;
 import org.example.java.entities.Personne;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class PersonneBuilder implements Builder<Personne> {
     private String id;
     private String nom;
     private String prenom;
     private LocalDate dateNaissance;
-
+    private List<Adresse> adresses;
     private PersonneBuilder() {
     }
 
@@ -22,6 +24,7 @@ public class PersonneBuilder implements Builder<Personne> {
         this.nom = personne.getNom();
         this.prenom = personne.getPrenom();
         this.dateNaissance = personne.getDateNaissance();
+        this.adresses = personne.getAdresses();
         return this;
     }
 
@@ -31,6 +34,7 @@ public class PersonneBuilder implements Builder<Personne> {
         personne.setNom(this.nom);
         personne.setPrenom(this.prenom);
         personne.setDateNaissance(this.dateNaissance);
+        personne.setAdresses(this.adresses);
         return personne;
     }
 
@@ -51,6 +55,10 @@ public class PersonneBuilder implements Builder<Personne> {
 
     public PersonneBuilder dateNaissance(LocalDate dateNaissance) {
         this.dateNaissance = dateNaissance;
+        return this;
+    }
+    public PersonneBuilder adresses(List<Adresse> adresses) {
+        this.adresses = adresses;
         return this;
     }
 }
