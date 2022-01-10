@@ -2,6 +2,7 @@ package org.example.java.builder;
 
 import java.time.LocalDate;
 
+import org.example.java.entities.Personne;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package org.example.java.builder;
+package org.example.java.entities;
 
 import lombok.Getter;
 import lombok.Setter;

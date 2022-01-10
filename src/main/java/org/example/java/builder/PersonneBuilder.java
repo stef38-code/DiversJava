@@ -1,5 +1,7 @@
 package org.example.java.builder;
 
+import org.example.java.entities.Personne;
+
 import java.time.LocalDate;
 
 public class PersonneBuilder implements Builder<Personne> {
