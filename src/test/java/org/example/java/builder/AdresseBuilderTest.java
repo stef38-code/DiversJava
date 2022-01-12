@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import java.util.UUID;
 
 import static org.assertj.core.api.BDDAssertions.then;
-import static org.junit.jupiter.api.Assertions.*;
 
 class AdresseBuilderTest {
     private String UUIDFAKE;
@@ -22,19 +21,19 @@ class AdresseBuilderTest {
     @BeforeEach
     void setUp() {
         UUIDFAKE = UUID.randomUUID().toString();
-        batimentResidence = "batimentResidence 1";
-        appartementEscalierEtage = "appartementEscalierEtage 1";
-        numeroNomVoie = "numeroNomVoie 1";
-        complementAdresse = "complementAdresse 1";
-        codePostal = "codePostal 1";
-        ville = "ville 1";
-        pays = "pays 1";
+        batimentResidence = "Résidence Les Tilleuls";
+        appartementEscalierEtage = "Apt. 183";
+        numeroNomVoie = "14, rue de la Hulotais";
+        complementAdresse = "BP 14";
+        codePostal = "59430";
+        ville = "SAINT-POL-SUR-MER";
+        pays = "France";
     }
 
     @Test
     void testClone() {
         Adresse adresse = getNouvelleAdresse();
-Adresse adresseClone = AdresseBuilder.builder().clone(adresse).build();
+        Adresse adresseClone = AdresseBuilder.builder().clone(adresse).build();
         then(adresseClone).usingRecursiveComparison()
                 .isEqualTo(adresse);
     }

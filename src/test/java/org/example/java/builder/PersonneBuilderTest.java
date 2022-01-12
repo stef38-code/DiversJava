@@ -29,22 +29,22 @@ class PersonneBuilderTest {
         dateNaissance = LocalDate.of(1999, 12, 31);
 
         adresse1 = AdresseBuilder.builder()
-                .batimentResidence("batimentResidence 1")
-                .appartementEscalierEtage("appartementEscalierEtage 1")
-                .numeroNomVoie("numeroNomVoie 1")
-                .complementAdresse("complementAdresse 1")
-                .codePostal("codePostal 1")
-                .ville("ville 1")
-                .pays("pays 1")
+                .batimentResidence("Résidence Les Tilleuls")
+                .appartementEscalierEtage("Apt. 183")
+                .numeroNomVoie("14, rue de la Hulotais")
+                .complementAdresse("BP 14")
+                .codePostal("59430")
+                .ville("SAINT-POL-SUR-MER")
+                .pays("France")
                 .build();
         adresse2 = AdresseBuilder.builder()
                 .batimentResidence("batimentResidence 2")
-                .appartementEscalierEtage("appartementEscalierEtage 2")
-                .numeroNomVoie("numeroNomVoie 2")
-                .complementAdresse("complementAdresse 2")
-                .codePostal("codePostal 2")
-                .ville("ville 2")
-                .pays("pays 2")
+                .appartementEscalierEtage("Immeuble Dumeilleur")
+                .numeroNomVoie("1 impasse de l Eglise")
+                .complementAdresse("")
+                .codePostal("01090")
+                .ville("FRANCHELEINS")
+                .pays("France")
                 .build();
     }
 
