@@ -4,6 +4,7 @@
 
 1. Le Builder le plus simple : 
 
+**_Exemple:_**
 ````java
 public class NomEntiteBuilder {
     /** Les propriétés **/
@@ -17,10 +18,10 @@ public class NomEntiteBuilder {
     }
     /** Le builder **/
     public NomEntite build() {
-        NomEntiteBuilder nomEntiteBuilder = new NomEntiteBuilder();
+        NomEntite nomEntite = new NomEntite();
        /** setter des proprietes **/
-        nomEntiteBuilder.setId(this.id);
-        return nomEntiteBuilder;
+        nomEntite.setId(this.id);
+        return nomEntite;
     }
     /** les Methodes d'affection des proprietes **/
     public NomEntiteBuilder id(String id) {
@@ -29,7 +30,12 @@ public class NomEntiteBuilder {
     }
 }
 ````
-
+**_Utilisation_**
+````java
+NomEntite nomEntiteBuilder = NomEntiteBuilder.builder()
+        .id("1234")
+        .build();
+````
 |               Source                |                                        Test Unitaire                                        |
 |:-----------------------------------:|:-------------------------------------------------------------------------------------------:|
 | [Personne](./PersonneBuilder.java)  |    [Test](../../../../../../test/java/org/example/java/builder/PersonneBuilderTest.java)    |
@@ -37,28 +43,36 @@ public class NomEntiteBuilder {
 
 2. Le Buidler de type Consumer : [Personne](./PersonneBuilderWithConsumer.java)
 
+**_Exemple_**
 ````java
-public class NomEntiteBuilderWithConsumer {
+public class NomEntiteBuilder {
     /** Les propriétés **/
     public String id;
 
     /** le Consumer **/
-    public NomEntiteBuilderWithConsumer with(
-            Consumer<NomEntiteBuilderWithConsumer> builderFunction) {
+    public NomEntiteBuilder with(
+            Consumer<NomEntiteBuilder> builderFunction) {
         builderFunction.accept(this);
         return this;
     }
 
     /** Le builder **/
-    public Personne createPersonne() {
-        NomEntite nomEntiteBuilder = new NomEntite();
+    public NomEntite createNomEntite() {
+        NomEntite nomEntit = new NomEntite();
         /** setter des proprietes **/
-        nomEntiteBuilder.setId(this.id);
-        return nomEntiteBuilder;
+        nomEntite.setId(this.id);
+        return nomEntite;
     }
 }
 ````
-
+**_Utilisation_**
+````java
+NomEntite nomEntit = new NomEntiteBuilder()
+                .with($ -> {
+                    $.id=UUIDFAKE;
+                })
+                .createNomEntite();
+````
 |               Source                |                                        Test Unitaire                                        |
 |:-----------------------------------:|:-------------------------------------------------------------------------------------------:|
 | [Personne](./PersonneBuilderWithConsumer.java)  |    [Test](../../../../../../test/java/org/example/java/builder/PersonneBuilderWithConsumerTest.java)    |
@@ -66,6 +80,8 @@ public class NomEntiteBuilderWithConsumer {
 
 
 3. Le Buidler Generic
+
+**_Exemple:_**
 ````java
 public class GenericBuilder <T> {
 
@@ -94,6 +110,28 @@ public class GenericBuilder <T> {
         return value;
     }
 }
+````
+**_Utilisation:_**
+````java
+Personne personne = GenericBuilder.of(Personne::new)
+                .with(Personne::setNom, nom)
+                .with(Personne::setPrenom, prenom)
+                .with(Personne::setId, UUIDFAKE)
+                .with(Personne::setDateNaissance, dateNaissance)
+                .with(Personne::setAdresses,
+                        List.of(
+                                GenericBuilder.of(Adresse::new)
+                                        .with(Adresse::setId, UUIDFAKEAdresse)
+                                        .with(Adresse::setBatimentResidence, batimentResidence)
+                                        .with(Adresse::setAppartementEscalierEtage, appEscalEtage)
+                                        .with(Adresse::setNumeroNomVoie, numVoie)
+                                        .with(Adresse::setComplementAdresse, compAdre)
+                                        .with(Adresse::setCodePostal, codePostal)
+                                        .with(Adresse::setVille, ville)
+                                        .with(Adresse::setPays, pays)
+                                        .build()
+                        ))
+                .build();
 ````
 |                    Source                    |                                        Test Unitaire                                        |
 |:--------------------------------------------:|:-------------------------------------------------------------------------------------------:|
