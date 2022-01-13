@@ -1,7 +1,7 @@
 package org.example.java.builder;
 
-import org.example.java.entities.Adresse;
-import org.example.java.entities.Personne;
+import org.example.java.core.entities.Adresse;
+import org.example.java.core.entities.Personne;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.UUID;
 
 import static org.assertj.core.api.BDDAssertions.then;
-import static org.junit.jupiter.api.Assertions.*;
 
 class PersonneBuilderWithConsumerTest {
     private String UUIDFAKE;

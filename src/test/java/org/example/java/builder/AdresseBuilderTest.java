@@ -1,6 +1,6 @@
 package org.example.java.builder;
 
-import org.example.java.entities.Adresse;
+import org.example.java.core.entities.Adresse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

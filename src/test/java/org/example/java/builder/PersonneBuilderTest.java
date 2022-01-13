@@ -2,8 +2,8 @@ package org.example.java.builder;
 
 import java.time.LocalDate;
 
-import org.example.java.entities.Adresse;
-import org.example.java.entities.Personne;
+import org.example.java.core.entities.Adresse;
+import org.example.java.core.entities.Personne;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

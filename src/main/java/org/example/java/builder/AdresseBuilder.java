@@ -1,6 +1,6 @@
 package org.example.java.builder;
 
-import org.example.java.entities.Adresse;
+import org.example.java.core.entities.Adresse;
 
 public class AdresseBuilder implements Builder<Adresse> {
     private String id;
