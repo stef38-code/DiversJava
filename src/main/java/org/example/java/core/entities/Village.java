@@ -10,8 +10,23 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 public class Village extends RandonUtil {
+
+    public static final int NOMBRE_PERSONNE_DEFAUT = 10;
+    private int nombrePersonne;
+
+    public Village() {
+        this.nombrePersonne = NOMBRE_PERSONNE_DEFAUT;
+        Villageois = initPopulation();
+    }
+    public Village(int nombrePersonne) {
+        this.nombrePersonne = nombrePersonne;
+        Villageois = initPopulation();
+    }
+
     @Getter
-    private final List<Personne> personnes;
+    private List<Personne> Villageois;
+
+
     List<String> noms = List.of("Lenoir de Ramos",
             "du Francois",
             "Benard",
@@ -22,6 +37,7 @@ public class Village extends RandonUtil {
             "Samson",
             "Valentin",
             "Meunier");
+    @Getter
     List<String> prenoms = List.of(
             "Louise",
             "Isaac",
@@ -35,22 +51,20 @@ public class Village extends RandonUtil {
             "Philippe"
     );
 
-    public Village() {
-        personnes = initPopulation();
-    }
 
     private List<Personne> initPopulation() {
-        List<Personne> gens = new ArrayList<>();
-        IntStream.range(1, 10)
+        List<Personne> villageois = new ArrayList<>();
+        IntStream.range(0, nombrePersonne)
                 .forEachOrdered(
                         index -> {
-                            Personne personne = genererUnePersonne();
+                            villageois.add(genererUnVillageois());
+
                         }
                 );
-        return gens;
+        return villageois;
     }
 
-    private Personne genererUnePersonne() {
+    private Personne genererUnVillageois() {
         String nom = getValues(noms);
         String prenom = getValues(prenoms);
         String uuid = getUUID();
