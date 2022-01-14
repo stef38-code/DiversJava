@@ -14,8 +14,8 @@ class StringNullTest {
 
     @Test
     @Order(1)
-    @DisplayName("Test cas return null")
-    void useCaseNomMajuscule_NullPointerException() {
+    @DisplayName("Test cas NullPointerException")
+    void useCaseNomMajuscule_null() {
         StringNull exemple = new StringNull();
         //
         thenThrownBy(exemple::useCaseNomMajuscule)
@@ -24,9 +24,9 @@ class StringNullTest {
 
     @Test
     @Order(2)
-    @DisplayName("Test cas return empty")
-    void useCaseNomMajuscule_Solution() {
-        StringEmptySolution exemple = new StringEmptySolution();
+    @DisplayName("Test cas empty")
+    void useCaseNomMajuscule_empty() {
+        StringEmpty exemple = new StringEmpty();
         //
         thenNoException().isThrownBy(exemple::useCaseNomMajuscule);
         then(exemple.useCaseNomMajuscule()).isNotNull();
@@ -34,9 +34,9 @@ class StringNullTest {
     }
     @Test
     @Order(2)
-    @DisplayName("Test cas return empty by Optional")
-    void useCaseNomMajuscule_OptionalSolution() {
-        StringOptionalSolution exemple = new StringOptionalSolution();
+    @DisplayName("Test cas Optional")
+    void useCaseNomMajuscule_optional() {
+        StringOptional exemple = new StringOptional();
         //
         thenNoException().isThrownBy(exemple::useCaseNomMajuscule);
         then(exemple.useCaseNomMajuscule()).isNotNull();

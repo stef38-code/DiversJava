@@ -2,6 +2,7 @@ package org.example.java.pratice;
 
 
 
+import lombok.Setter;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Locale;
@@ -10,8 +11,9 @@ import java.util.Objects;
 /**
  * Cas d'utilisation du null (pratique recommendée )
  */
-public class StringEmptySolution  {
-    private final String nom = null;
+public class StringEmpty {
+    @Setter
+    private  String nom = null;
 
     protected String getNomValue() {
         if (Objects.isNull(nom)) {
