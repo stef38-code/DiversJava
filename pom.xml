@@ -23,7 +23,7 @@
         <jacoco.version>0.8.7</jacoco.version>
         <commons-lang3.version>3.12.0</commons-lang3.version>
         <commons-collections4.version>4.4</commons-collections4.version>
-        <cucumber.version>2.1.0</cucumber.version>
+        <cucumber.version>7.2.3</cucumber.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
         <jacoco-maven-plugin.line.minimum>0.80</jacoco-maven-plugin.line.minimum>
         <jacoco-maven-plugin.branch.minimum>0.80</jacoco-maven-plugin.branch.minimum>
@@ -70,6 +70,24 @@
         <artifactId>cucumber-junit</artifactId>
         <version>${cucumber.version}</version>
         <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-picocontainer</artifactId>
+        <version>${cucumber.version}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit-platform-engine -->
+    <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-junit-platform-engine</artifactId>
+        <version>${cucumber.version}</version>
+        <scope>test</scope>
+    </dependency>
+
+    <dependency>
+        <groupId>commons-validator</groupId>
+        <artifactId>commons-validator</artifactId>
+        <version>1.6</version>
     </dependency>
 </dependencies>
 <build>
