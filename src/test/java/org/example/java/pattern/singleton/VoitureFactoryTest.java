@@ -13,8 +13,9 @@ class VoitureFactoryTest {
     private String couleur;
     private Voiture voiture1;
     private Voiture voiture2;
-private VoitureFactory voitureFactory1;
-private VoitureFactory voitureFactory2;
+    private VoitureFactory voitureFactory1;
+    private VoitureFactory voitureFactory2;
+
     @BeforeEach
     void setUp() {
         nbRoues = 4;
@@ -35,17 +36,17 @@ private VoitureFactory voitureFactory2;
         //Vérifier la sortie (then)
 
         assertAll("Controle des propriete de la voiture 1",
-                ()->then(voiture1.getNbRoues()).isEqualTo(nbRoues),
-                ()->then(voiture1.getMarque()).hasToString(marque),
-                () ->then(voiture1.getCouleur()).hasToString(couleur)
+                () -> then(voiture1.getNbRoues()).isEqualTo(nbRoues),
+                () -> then(voiture1.getMarque()).hasToString(marque),
+                () -> then(voiture1.getCouleur()).hasToString(couleur)
         );
         assertAll("Controle des propriete de la voiture 2",
-                ()->then(voiture2.getNbRoues()).isEqualTo(nbRoues),
-                ()->then(voiture2.getMarque()).hasToString(marque),
-                ()->then(voiture2.getCouleur()).hasToString(couleur)
+                () -> then(voiture2.getNbRoues()).isEqualTo(nbRoues),
+                () -> then(voiture2.getMarque()).hasToString(marque),
+                () -> then(voiture2.getCouleur()).hasToString(couleur)
         );
         assertAll("Controle si la voiture1 egale voiture 2",
-                ()->then(voiture1).isEqualTo(voiture2)
+                () -> then(voiture1).isEqualTo(voiture2)
         );
     }
 

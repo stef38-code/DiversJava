@@ -1,11 +1,13 @@
 package org.example.java.core.entities;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static org.assertj.core.api.BDDAssertions.then;
 
+@Disabled
 class VillageTest {
     @Test
     void getVillageois_Lorsque_contructeurVide_Attend_10Personnes() {

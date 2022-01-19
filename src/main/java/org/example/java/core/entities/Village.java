@@ -16,17 +16,17 @@ public class Village extends RandonUtil {
 
     public Village() {
         this.nombrePersonne = NOMBRE_PERSONNE_DEFAUT;
-        Villageois = initPopulation();
+        villageois = initPopulation();
     }
     public Village(int nombrePersonne) {
         this.nombrePersonne = nombrePersonne;
-        Villageois = initPopulation();
+        villageois = initPopulation();
     }
 
     @Getter
-    private List<Personne> Villageois;
+    private List<Personne> villageois;
 
-
+@Getter
     List<String> noms = List.of("Lenoir de Ramos",
             "du Francois",
             "Benard",
@@ -53,20 +53,17 @@ public class Village extends RandonUtil {
 
 
     private List<Personne> initPopulation() {
-        List<Personne> villageois = new ArrayList<>();
+        List<Personne> personnes = new ArrayList<>();
         IntStream.range(0, nombrePersonne)
                 .forEachOrdered(
-                        index -> {
-                            villageois.add(genererUnVillageois());
-
-                        }
+                        index -> personnes.add(genererUnVillageois())
                 );
-        return villageois;
+        return personnes;
     }
 
     private Personne genererUnVillageois() {
-        String nom = getValues(noms);
-        String prenom = getValues(prenoms);
+        String nom = getValues(getNoms());
+        String prenom = getValues(getPrenoms());
         String uuid = getUUID();
         LocalDate dateNaissance = getLocalDate();
         return GenericBuilder.of(Personne::new)
