@@ -9,3 +9,4 @@ Feature: Le nombre de villageois
     Given Je suis le maire de 100 villageois
     When Je consulte la poupulation
     Then Je devrais avoir 100 personne
+

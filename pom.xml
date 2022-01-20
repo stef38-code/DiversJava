@@ -7,7 +7,20 @@
     <groupId>org.example.java</groupId>
     <artifactId>divers</artifactId>
     <version>1.0</version>
+<profiles>
+    <profile>
+        <id>external</id>
+        <repositories>
+            <repository>
+            <id>externalrepo</id>
+            <!-- <mirrorOf>*</mirrorOf> -->
+            <name>Repo central</name>
+            <url>https://repo1.maven.org/maven2/</url>
+            </repository>
+        </repositories>
+    </profile>
 
+</profiles>
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
